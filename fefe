@@ -1,0 +1,525 @@
+local OrionLib = loadstring(game:HttpGet(("https://pastebin.com/raw/wqYWxQsa")))()
+
+local Window = OrionLib:MakeWindow({Name = "By SeFer PRIVATE", HidePremium = false, SaveConfig = true, ConfigFolder = "LuckyBlocks by SeFer"})
+
+local AutoFarm = true
+
+local DisableForceField = true
+
+local players = ""
+
+local playerss = ""
+
+local ToPlayerName = ""
+
+local CordinatesSpawn = ""
+
+local CordinatesSpawnCFrame = ""
+
+local ShiftSpeed = 32
+
+local PanelVisible = true
+
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+
+
+local UIStroke = Instance.new("UIStroke")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.400000006, 0, 0, 0)
+Frame.Size = UDim2.new(0, 435, 0, 51)
+
+UICorner.Parent = Frame
+
+UIStroke.Parent = Frame
+UIStroke.Thickness = 5.3
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, 0.0196078438, 0)
+TextLabel.Size = UDim2.new(0, 435, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Shift To Run"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 55.000
+
+function PanelVis()
+	if PanelVisible == true then
+		ScreenGui.Enabled = false
+		PanelVisible = false
+	else
+		ScreenGui.Enabled = true
+		PanelVisible = true
+	end
+end
+
+-- Scripts:
+
+local function TJHUT_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	while task.wait() do
+		local t = 11; 
+		local hue = tick() % t / t
+		local colorrr = Color3.fromHSV(hue, 1, 1)
+		script.Parent.UIStroke.Color = colorrr
+	end
+end
+coroutine.wrap(TJHUT_fake_script)()
+local function BTDK_fake_script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	m = game.Players.LocalPlayer:GetMouse()
+	
+	m.KeyDown:connect(function(key)
+		if key == "0" then --"Shift to run" 0 == shift
+			script.Parent.Text = "Running"
+		end
+	end)
+	
+	m.KeyUp:connect(function(key)
+		if key == "0" then --"Shift to run" 0 == shift
+			script.Parent.Text = "Not Running"
+		end
+	end)
+end
+coroutine.wrap(BTDK_fake_script)()
+
+function Unnamedd()
+	repeat wait() until game.Players.LocalPlayer
+
+m = game.Players.LocalPlayer:GetMouse()
+
+m.KeyDown:connect(function(key)
+	if key == "0" then --"Shift to run" 0 == shift
+		print("Running")
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ShiftSpeed  --change "25" to your speed you want
+		game.Workspace.Camera.FieldOfView = game.Workspace.Camera.FieldOfView + 15
+	end
+end)
+
+m.KeyUp:connect(function(key)
+	if key == "0" then
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 --change "16" to your speed you want when you stop running
+		game.Workspace.Camera.FieldOfView = game.Workspace.Camera.FieldOfView - 15
+	end
+end)
+end
+
+Unnamedd()
+
+
+
+function FindPlayers()
+	for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+
+	players = players..v.Name..", "
+
+end
+end
+
+function FindPlayers2()
+	for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+
+	playerss = playerss..v.DisplayName..", "
+
+end
+end
+
+
+function GetPlayerSpawn()
+if game.Workspace.Spawn1.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn1.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn1.SpawnLocation.CFrame
+elseif game.Workspace.Spawn2.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn2.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn2.SpawnLocation.CFrame
+elseif game.Workspace.Spawn3.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn3.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn3.SpawnLocation.CFrame
+elseif game.Workspace.Spawn4.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn4.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn4.SpawnLocation.CFrame
+elseif game.Workspace.Spawn5.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn5.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn5.SpawnLocation.CFrame
+elseif game.Workspace.Spawn6.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn6.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn6.SpawnLocation.CFrame
+elseif game.Workspace.Spawn7.Owner.Value == game:GetService("Players").LocalPlayer.Name then
+	CordinatesSpawn = game.Workspace.Spawn7.SpawnLocation.Position
+	CordinatesSpawnCFrame = game.Workspace.Spawn7.SpawnLocation.CFrame
+end
+end
+
+GetPlayerSpawn()
+FindPlayers()
+FindPlayers2()
+
+
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+function testesr()
+	while AutoFarm == true do
+		game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+		wait(0.001)
+		OrionLib:MakeNotification({
+		Name = "Успешно!",
+		Content = "Проверьте свой инвентарь!",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+	end
+end
+
+
+
+function DisableFF()
+	if DisableForceField == true then
+		game.Workspace.Terrain4.ForceFields.Mesh.TextureId = "0"
+		game.Workspace.Terrain4.ForceFields.Mesh.MeshId = "0"
+	else
+		game.Workspace.Terrain4.ForceFields.Mesh.TextureId = "90782359"
+		game.Workspace.Terrain4.ForceFields.Mesh.MeshId = "90782182"
+end
+end
+
+
+local Tab = Window:MakeTab({
+	Name = "Главная/Информация",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+Tab:AddParagraph("Void Block","Информация про Void Block! Как только его открыли вы должны подождать 1200 Секунд до слеующего открытия")
+
+local Tab2 = Window:MakeTab({
+	Name = "Игрок",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Телепорт",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab5 = Window:MakeTab({
+	Name = "Блоки",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab4 = Window:MakeTab({
+	Name = "Визуалы",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab6 = Window:MakeTab({
+	Name = "Прочее",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section6 = Tab4:AddSection({
+	Name = "Мир"
+})
+
+Section6:AddToggle({
+	Name = "Выключить защитные щиты (Визуал)",
+	Default = false,
+	Callback = function(Value)
+      		DisableForceField = Value
+			DisableFF()
+  	end    
+})
+
+local Section12 = Tab4:AddSection({
+	Name = "Интерфейс"
+})
+
+Section12:AddToggle({
+	Name = "Отключить панель бега",
+	Default = false,
+	Callback = function(Value)
+      		PanelVisible = Value
+			  PanelVis()
+  	end    
+})
+
+Section6:AddSlider({
+	Name = "Поле зрения : Стандартное значение - 70",
+	Min = 30,
+	Max = 130,
+	Default = 70,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "FOV",
+	Callback = function(Value)
+		game.Workspace.Camera.FieldOfView = Value
+	end    
+})
+
+local Section7 = Tab6:AddSection({
+	Name = "Главное"
+})
+
+local Section10 = Tab6:AddSection({
+	Name = "Панель Админа"
+})
+
+Section7:AddButton({
+	Name = "Получить @name Игроков",
+	Callback = function()
+			OrionLib:MakeNotification({
+	Name = "Игроки",
+	Content = players,
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
+Section7:AddButton({
+	Name = "Получить #Display Name Игроков",
+	Callback = function()
+			OrionLib:MakeNotification({
+	Name = "Игроки (Имя)",
+	Content = playerss,
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
+
+Section10:AddButton({
+	Name = "Админ Меню (Infinity Yield)",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Infinity Yield",
+			Content = "Ожидание инъекции >> 100%",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")))()	
+  	end    
+})
+
+Section10:AddButton({
+	Name = "Админ Меню 2 (cmdx)",
+	Callback = function()
+	OrionLib:MakeNotification({
+			Name = "CMDX",
+			Content = "Ожидание инъекции >> 100%",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source")))()	
+  	end    
+})
+
+Section10:AddButton({
+	Name = "Декс (DarkDex V3)",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Dark Dex V3",
+			Content = "Ожидание инъекции >> 100%",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua")))()	
+  	end    
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Section = Tab2:AddSection({
+	Name = "Главное"
+})
+
+local Section5 = Tab3:AddSection({
+	Name = "Блоки"
+})
+
+Tab3:AddButton({
+	Name = "Телепорт к Воид Блоку",
+	Callback = function()
+			game:GetService("Players").LocalPlayer.Character.Humanoid.Torso.CFrame = CFrame.new(-1041.23193, 205.466263, 90.9467316)
+			OrionLib:MakeNotification({
+				Name = "Успешно!",
+				Content = "Вы успешно телепортированы на X:-1041.23193 Y:205.466263, Z:90.9467316",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Телепорт на Горы",
+	Callback = function()
+			game:GetService("Players").LocalPlayer.Character.Humanoid.Torso.CFrame = CFrame.new(-1121.62952, 246.474243, -399.414886)
+			OrionLib:MakeNotification({
+				Name = "Успешно!",
+				Content = "Вы успешно телепортированы на X:-1121.6295 Y:246.474243, Z:-399.414886",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+  	end    
+})
+
+local Section9 = Tab3:AddSection({
+	Name = "Другое"
+})
+
+Section9:AddButton({
+	Name = "Телепорт на свою базу",
+	Default = false,
+	Callback = function(Value)
+      		game:GetService("Players").LocalPlayer.Character.Humanoid.Torso.CFrame = CFrame.new(CordinatesSpawn)
+			OrionLib:MakeNotification({
+				Name = "Успешно!",
+				Content = "Вы успешно телепортированы на базу "..game:GetService("Players").LocalPlayer.Name.." по "..tostring(CordinatesSpawn),
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+  	end    
+})
+
+local Section8 = Tab3:AddSection({
+	Name = "К игроку"
+})
+
+Tab3:AddTextbox({
+	Name = "Имя Игрока",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(v)
+		ToPlayerName = v
+	end	  
+})
+
+local Bitch = Tab3:AddButton({
+	Name = "Телепорт к "..tostring(ToPlayerName),
+	Callback = function()
+		if game:GetService("Players"):FindFirstChild(ToPlayerName) then
+			game:GetService("Players").LocalPlayer.Character.Humanoid.Torso.CFrame = game:GetService("Players"):FindFirstChild(ToPlayerName).Character.Humanoid.Torso.CFrame
+			local xyz = game:GetService("Players"):FindFirstChild(ToPlayerName).Character.Humanoid.Torso.Position
+			local xzy = tostring(xyz)
+			OrionLib:MakeNotification({
+				Name = "Успешно!",
+				Content = "Вы успешно телепортированы к Игроку "..ToPlayerName.." на "..xzy,
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+		else
+			OrionLib:MakeNotification({
+				Name = "Ошибка!",
+				Content = "Возможно вы указали DisplayName Игрока! Нужен никнейм игрока который начинается с @! Либо указанный вами игрок не найден!",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+		end
+  	end    
+})
+
+Section:AddToggle({
+	Name = "Получить Вещи",
+	Default = false,
+	Callback = function(Value)
+      		AutoFarm = Value
+			testesr()
+  	end    
+})
+
+
+
+Section:AddSlider({
+	Name = "Скорость Шифт Бега : Стандартное значение 32",
+	Min = 16,
+	Max = 250,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+       ShiftSpeed = Value
+end    
+})
+
+
+
+
+local Section11 = Tab5:AddSection({
+	Name = "Радужный блок (На центре)"
+})
+
+local Section22 = Tab5:AddSection({
+	Name = "Радужный блок 2 (На центре)"
+})
+
+local Section33 = Tab5:AddSection({
+	Name = "Галактический блок (На центре)"
+})
+
+local Section44 = Tab5:AddSection({
+	Name = "Галактический блок 2 (На центре)"
+})
+
+
+local ss = Section11:AddLabel("fwfw")
+local ss2 = Section22:AddLabel("fwfw")
+local ss3 = Section33:AddLabel("fwfw")
+local ss4 = Section44:AddLabel("fwfw")
+
+OrionLib:Init()
+	
+while wait(1) do
+	ss:Set(game.Workspace.CenterBlocks.Givers.BlockGiverRainbow1.GUI.SurfaceGui.Frame.Time1.Text)
+	ss2:Set(game.Workspace.CenterBlocks.Givers.BlockGiverRainbow2.GUI.SurfaceGui.Frame.Time1.Text)
+	ss3:Set(game.Workspace.CenterBlocks.Givers.BlockGiverGalaxy1.GUI.SurfaceGui.Frame.Time1.Text)
+	ss4:Set(game.Workspace.CenterBlocks.Givers.BlockGiverGalaxy2.GUI.SurfaceGui.Frame.Time1.Text)
+	Bitch:Set("Телепорт к "..tostring(ToPlayerName))
+end
+
+
+
